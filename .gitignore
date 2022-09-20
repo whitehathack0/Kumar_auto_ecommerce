@@ -1,3 +1,4 @@
 .idea/
 *__pycache__
 *.DS_Store
+ecommerce_fe_temp/node_modules
