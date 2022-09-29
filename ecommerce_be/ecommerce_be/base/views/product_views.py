@@ -1,14 +1,10 @@
+from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 
-from .models import Product
-from .products import products
-from .serializers import ProductSerializer
-
-
-@api_view(['GET'])
-def get_routes(request):
-    return Response('SO MANY ROUTES')
+from ..models import Product
+from ..serializers import ProductSerializer, UserSerializer, UserSerializerWithToken
 
 
 @api_view(['GET'])
