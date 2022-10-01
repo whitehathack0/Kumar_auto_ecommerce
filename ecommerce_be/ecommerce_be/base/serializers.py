@@ -28,8 +28,8 @@ class UserSerializerWithToken(UserSerializer):
     token = serializers.SerializerMethodField(read_only=True)
 
     def get_token(self, obj):
-        token = str(RefreshToken.for_user(obj))
-        return token
+        token = RefreshToken.for_user(obj)
+        return str(token.access_token)
 
     class Meta:
         model = User
